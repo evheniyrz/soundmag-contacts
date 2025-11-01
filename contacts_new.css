@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300;400;500;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300;400;500;700&display=swap");
 
 .contact-page-top-banner,
 .help-sound,
 .store-address-container {
   font-family: "Montserrat", sans-serif;
   font-stretch: normal;
-  color: #403F3F;
+  color: #403f3f;
 }
 
 .contact-page-top-banner {
@@ -14,11 +13,10 @@
   color: #ffffff;
   background-image: url(public/top-banner-image.jpg);
   background-position: center;
-  padding-bottom:55.81%;
+  padding-bottom: 55.81%;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-
 }
 
 .banner-intro {
@@ -56,14 +54,14 @@
   max-width: 100%;
 }
 
-.help-sound-list-title{
+.help-sound-list-title {
   font-size: clamp(2.5rem, 2.1429rem + 1.7857vw, 3.75rem);
   font-weight: 700;
   line-height: 1;
   margin-top: 20px;
 }
 
-.help-sound-list{
+.help-sound-list {
   list-style: none;
   padding: 0;
   font-size: clamp(1.125rem, 1.0179rem + 0.5357vw, 1.5rem);
@@ -76,8 +74,8 @@
   margin-top: clamp(1.25rem, 0.8929rem + 1.7857vw, 2.5rem);
 }
 
-.help-sound-list-item::before{
-  content: '';
+.help-sound-list-item::before {
+  content: "";
   position: absolute;
   left: 0;
   top: 50%;
@@ -100,23 +98,140 @@
   opacity: 0.8;
 }
 
-.p-block {
-  padding-left: 8px;
-  padding-right: 8px;
+.store-address-container .tab-content .tab-pane.active {
+  grid-template-columns: 1fr;
+}
+
+.store-map-and-parking .city-google-map {
+  position: relative;
+  height: 100%;
+  max-height: 570px;
+}
+
+.store-map-and-parking .city-google-map iframe {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+}
+
+.store-address {
+  font-size: clamp(1.125rem, 1.0179rem + 0.5357vw, 1.5rem);
+  line-height: 1.1;
+  margin-bottom: clamp(2.5rem, 2.1429rem + 1.7857vw, 3.75rem);
+}
+
+.parking-place figure {
+  width: 100%;
+}
+
+.parking-place figure img {
+  display: block;
+  max-width: 100%;
+  margin-bottom: 15px;
+}
+
+.parking-place figure figcaption .description-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.parking-place figure figcaption .description-container p {
+  font-size: clamp(1.125rem, 1.0179rem + 0.5357vw, 1.5rem);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.city-store-tab-content {
+  list-style: none;
+}
+
+.tab-content-item {
+  margin-bottom: clamp(2.5rem, 2.1429rem + 1.7857vw, 3.75rem);
+}
+
+.tab-content-item h3 {
+  font-size: clamp(1.5rem, 1.2143rem + 1.4286vw, 2.5rem);
+  margin-bottom: 20px;
+}
+
+.tab-content-item p {
+  margin-bottom: 10px;
+  font-size: clamp(1.125rem, 1.0179rem + 0.5357vw, 1.5rem);
+  line-height: 1.1;
+}
+
+.tab-content-item p a {
+  color: inherit;
+  cursor: pointer;
+}
+
+.path-to-store .image-wrapper {
+  --path-to-store-gap: 40px;
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--path-to-store-gap);
+}
+
+.path-to-store .image-wrapper figure {
+  margin-bottom: 0;
+  max-width: calc(33.3333% - var(--path-to-store-gap));
+}
+
+.path-to-store .image-wrapper figure img {
+  display: block;
+  max-width: 100%;
 }
 
 @media screen and (min-width: 1023px) {
-  .contact-page-top-banner{
-    padding-bottom:  33.74%;
+  .contact-page-top-banner {
+    padding-bottom: 33.74%;
   }
 
   .help-sound {
-  flex-flow: row;
-  align-items: center;
-  padding: 95px 0 ;
+    flex-flow: row;
+    align-items: center;
+    padding: 95px 0;
   }
 
   .help-sound-list-container {
     padding: 50px 40px;
+  }
+
+  .store-address-container {
+    padding: 0 80px;
+  }
+
+  .store-address-element {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  /* TABS */
+  .store-address-container .tab-content .tab-pane.active {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* карта шире, контакты уже */
+    grid-template-rows: auto auto;
+    gap: 95px;
+    max-width: 1300px; /* ширина враппера */
+    margin: 0 auto;
+  }
+
+  .store-map-and-parking {
+    grid-column: 1;
+  }
+
+  .city-google-map {
+    height: 100%;
+    max-height: 570px;
+  }
+
+  .city-store-tab-content {
+    grid-column: 2;
+  }
+
+  .path-to-store {
+    grid-column: 1 / -1; /* растянуть на всю ширину */
   }
 }
