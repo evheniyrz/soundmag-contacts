@@ -104,8 +104,7 @@
 
 .store-map-and-parking .city-google-map {
   position: relative;
-  height: 100%;
-  max-height: 570px;
+  height: 570px;
 }
 
 .store-map-and-parking .city-google-map iframe {
@@ -125,7 +124,7 @@
   margin: 0;
 }
 
-.parking-place figure img {
+.parking-place figure img:not(.parking-ico) {
   display: block;
   max-width: 100%;
   margin-bottom: 15px;
@@ -213,7 +212,7 @@
   .store-address-container .tab-content .tab-pane.active {
     display: grid;
     grid-template-columns: 1fr 1fr; /* карта шире, контакты уже */
-    grid-template-rows: auto auto;
+    grid-template-rows: minmax(min-content, max-content) 1fr;
     gap: 95px;
   }
 
@@ -222,8 +221,7 @@
   }
 
   .city-google-map {
-    height: 100%;
-    max-height: 570px;
+    height: 570px;
   }
 
   .city-store-tab-content {
@@ -231,6 +229,6 @@
   }
 
   .path-to-store {
-    grid-column: 1 / -1; /* растянуть на всю ширину */
+    grid-column: 1 / -1;
   }
 }
