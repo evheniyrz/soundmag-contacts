@@ -225,6 +225,12 @@
   cursor: pointer;
 }
 
+.tab-content-item p a:not([href^="tel:"]) {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-color: var(--orange);
+}
+
 .path-to-store h2 {
   font-size: clamp(2.5rem, 2.1429rem + 1.7857vw, 3.75rem);
   line-height: 1;
