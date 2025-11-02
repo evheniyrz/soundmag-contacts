@@ -8,7 +8,30 @@
   color: #403f3f;
 }
 
-.accent-text-color{
+.nav {
+  justify-content: space-evenly;
+  padding-bottom: clamp(1.25rem, 0.8929rem + 1.7857vw, 2.5rem);
+}
+
+.nav-tabs {
+  border-bottom: unset;
+}
+
+.nav-tabs .nav-link {
+  font-size: clamp(1.125rem, 1.0179rem + 0.5357vw, 1.5rem);
+  font-weight: 700;
+  color: rgba(64, 63, 63, 0.5);
+  border-radius: 0.25rem;
+  padding: 0.5rem 1.2rem;
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--orange);
+  background-color: rgba(250, 150, 0, 0.1);
+  border: none;
+}
+
+.accent-text-color {
   color: var(--orange);
 }
 
@@ -103,17 +126,25 @@
 }
 
 .store-address-container {
-  padding: 0 20px;
+  padding: 0 20px 80px;
+  overflow-x: auto;
 }
 
 .store-address-container .tab-content .tab-pane.active {
-  grid-template-columns: 1fr;
+  display: grid;
+  grid-template-columns: 1fr; /* карта шире, контакты уже */
+  grid-template-rows: minmax(min-content, max-content) 1fr;
+  gap: 40px;
+}
+
+.store-map-and-parking {
+  grid-row: 2;
 }
 
 .store-map-and-parking .city-google-map {
   position: relative;
   padding-bottom: 75.32%;
-  margin-bottom: clamp(0.625rem, 0.4464rem + 0.8929vw, 1.25rem);;
+  margin-bottom: clamp(0.625rem, 0.4464rem + 0.8929vw, 1.25rem);
 }
 
 .store-map-and-parking .city-google-map iframe {
@@ -152,23 +183,40 @@
 }
 
 .city-store-tab-content {
+  --tab-content-list-gap: clamp(1.5625rem, 0.6618rem + 3.4314vw, 3.75rem);
+  grid-row: 1;
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  gap: var(--tab-content-list-gap);
 }
 
 .tab-content-item {
-  margin-bottom: clamp(2.5rem, 2.1429rem + 1.7857vw, 3.75rem);
+  width: 100%;
+}
+
+.tab-content-item:nth-child(1),
+.tab-content-item:nth-child(2) {
+  flex: 1 1;
+  width: calc(45% - (var(--tab-content-list-gap)));
+  min-width: 145px;
+}
+
+.tab-content-item:nth-child(2) {
+  flex: 2 0;
 }
 
 .tab-content-item h3 {
-  font-size: clamp(1.5rem, 1.2143rem + 1.4286vw, 2.5rem);
+  font-size: clamp(1.5rem, 1.0882rem + 1.5686vw, 2.5rem);
   margin-bottom: 20px;
 }
 
 .tab-content-item p {
   margin-bottom: 10px;
-  font-size: clamp(1.125rem, 1.0179rem + 0.5357vw, 1.5rem);
+  font-size: clamp(1.125rem, 0.9706rem + 0.5882vw, 1.5rem);
   line-height: 1.1;
 }
 
@@ -179,6 +227,8 @@
 
 .path-to-store h2 {
   font-size: clamp(2.5rem, 2.1429rem + 1.7857vw, 3.75rem);
+  line-height: 1;
+  margin-bottom: 20px;
 }
 
 .path-to-store .image-wrapper {
@@ -190,7 +240,7 @@
 
 .path-to-store .image-wrapper figure {
   margin-bottom: 0;
-  /* max-width: calc(33.3333% - var(--path-to-store-gap)); */
+  max-width: 100%;
   min-width: 280px;
   flex: 1;
 }
@@ -200,7 +250,18 @@
   max-width: 100%;
 }
 
+@media screen and (max-width: 395px) {
+  .tab-content-item:nth-child(1),
+  .tab-content-item:nth-child(2) {
+    min-width: 100%;
+  }
+}
+
 @media screen and (min-width: 1023px) {
+  .nav {
+    justify-content: flex-start;
+    transform: translateX(calc(50% + 45px));
+  }
   .contact-page-top-banner {
     padding-bottom: 33.74%;
   }
@@ -227,7 +288,6 @@
 
   /* TABS */
   .store-address-container .tab-content .tab-pane.active {
-    display: grid;
     grid-template-columns: 1fr 1fr; /* карта шире, контакты уже */
     grid-template-rows: minmax(min-content, max-content) 1fr;
     gap: 95px;
@@ -235,17 +295,30 @@
 
   .store-map-and-parking {
     grid-column: 1;
-  }
-
-  .city-google-map {
-    /* height: 570px; */
+    grid-row: 1;
+    margin-block-start: -90px;
   }
 
   .city-store-tab-content {
     grid-column: 2;
+    grid-row: 1;
+  }
+
+  .tab-content-item:nth-child(1),
+  .tab-content-item:nth-child(2) {
+    flex: 1 0 100%;
+    width: 100%;
   }
 
   .path-to-store {
     grid-column: 1 / -1;
+  }
+
+  .path-to-store h2 {
+    margin-bottom: 30px;
+  }
+
+  .path-to-store .image-wrapper figure {
+    max-width: 33.3333%;
   }
 }
