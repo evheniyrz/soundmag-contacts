@@ -8,6 +8,10 @@
   color: #403f3f;
 }
 
+.accent-text-color{
+  color: var(--orange);
+}
+
 .contact-page-top-banner {
   text-align: center;
   color: #ffffff;
@@ -98,13 +102,18 @@
   opacity: 0.8;
 }
 
+.store-address-container {
+  padding: 0 20px;
+}
+
 .store-address-container .tab-content .tab-pane.active {
   grid-template-columns: 1fr;
 }
 
 .store-map-and-parking .city-google-map {
   position: relative;
-  height: 570px;
+  padding-bottom: 75.32%;
+  margin-bottom: clamp(0.625rem, 0.4464rem + 0.8929vw, 1.25rem);;
 }
 
 .store-map-and-parking .city-google-map iframe {
@@ -144,6 +153,8 @@
 
 .city-store-tab-content {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .tab-content-item {
@@ -166,6 +177,10 @@
   cursor: pointer;
 }
 
+.path-to-store h2 {
+  font-size: clamp(2.5rem, 2.1429rem + 1.7857vw, 3.75rem);
+}
+
 .path-to-store .image-wrapper {
   --path-to-store-gap: 40px;
   display: flex;
@@ -175,7 +190,9 @@
 
 .path-to-store .image-wrapper figure {
   margin-bottom: 0;
-  max-width: calc(33.3333% - var(--path-to-store-gap));
+  /* max-width: calc(33.3333% - var(--path-to-store-gap)); */
+  min-width: 280px;
+  flex: 1;
 }
 
 .path-to-store .image-wrapper figure img {
@@ -199,7 +216,7 @@
   }
 
   .store-address-container {
-    padding: 0 80px;
+    padding: 0 80px 100px;
   }
 
   .store-address-element {
@@ -221,7 +238,7 @@
   }
 
   .city-google-map {
-    height: 570px;
+    /* height: 570px; */
   }
 
   .city-store-tab-content {
